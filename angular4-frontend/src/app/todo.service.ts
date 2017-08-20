@@ -10,27 +10,27 @@ export class TodoService {
   constructor(private http: Http) { }
 
   getTodos():  Promise<Todo[]> {
-    return this.http.get(this.baseUrl + '/api/todos/')
+    return this.http.get(this.baseUrl + '/api/demos/')
       .toPromise()
       .then(response => response.json() as Todo[])
       .catch(this.handleError);
   }
 
   createTodo(todoData: Todo): Promise<Todo> {
-    return this.http.post(this.baseUrl + '/api/todos/', todoData)
+    return this.http.post(this.baseUrl + '/api/demos/', todoData)
       .toPromise().then(response => response.json() as Todo)
       .catch(this.handleError);
   }
 
   updateTodo(todoData: Todo): Promise<Todo> {
-    return this.http.put(this.baseUrl + '/api/todos/' + todoData.id, todoData)
+    return this.http.put(this.baseUrl + '/api/demos/' + todoData.id, todoData)
       .toPromise()
       .then(response => response.json() as Todo)
       .catch(this.handleError);
   }
 
   deleteTodo(id: string): Promise<any> {
-    return this.http.delete(this.baseUrl + '/api/todos/' + id)
+    return this.http.delete(this.baseUrl + '/api/demos/' + id)
       .toPromise()
       .catch(this.handleError);
   }
